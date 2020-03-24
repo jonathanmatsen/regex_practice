@@ -1,4 +1,4 @@
-#search for mentions within hacker news dataset 
+#search for mentions within hacker news dataset
 
 import re
 
@@ -11,3 +11,15 @@ pattern = "[Pp]ython"
 for title in titles:
     if re.search(pattern, title):
         python_mentions += 1
+
+#use vectorized method to accomplish above
+
+pattern = '[Pp]ython'
+
+titles = hn['title']
+
+python_mentions = titles.str.contains(pattern).sum()
+
+# exploring continued
+titles = hn['title']
+ruby_titles = titles[titles.str.contains(r"[Rr]uby")]
