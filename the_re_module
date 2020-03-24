@@ -67,3 +67,8 @@ java_titles = titles[titles.str.contains(pattern)]
 pattern = r"\b[Jj]ava\b"
 
 java_titles = titles[titles.str.contains(pattern)]
+
+# matching at the start and end of strings
+beginning_count = titles.str.contains("^\[\w+\]").sum()
+
+ending_count = titles.str.contains(r"\[\w+\]$").sum()
