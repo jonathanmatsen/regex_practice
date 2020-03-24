@@ -39,3 +39,11 @@ pattern = "\[\w+\]"
 tag_titles = titles.str.contains(pattern)
 
 tag_count = tag_titles.sum()
+
+# access the matching text with capture groups
+
+pattern = r"\[(\w+)\]"
+
+tags = titles.str.extract(pattern)
+
+tag_freq = tags.value_counts()
