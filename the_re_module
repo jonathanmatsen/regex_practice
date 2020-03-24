@@ -23,3 +23,11 @@ python_mentions = titles.str.contains(pattern).sum()
 # exploring continued
 titles = hn['title']
 ruby_titles = titles[titles.str.contains(r"[Rr]uby")]
+
+#quanitfiers
+
+email_bool = titles.str.contains(r"e-?mail")
+
+email_count = email_bool.sum()
+
+email_titles = titles[email_bool]
