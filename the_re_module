@@ -62,3 +62,8 @@ def first_10_matches(pattern):
     return first_10
 
 java_titles = titles[titles.str.contains(pattern)]
+
+# same as above but with word boundary
+pattern = r"\b[Jj]ava\b"
+
+java_titles = titles[titles.str.contains(pattern)]
