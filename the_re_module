@@ -1,0 +1,13 @@
+#search for mentions within hacker news dataset 
+
+import re
+
+titles = hn["title"].tolist()
+
+python_mentions = 0
+
+pattern = "[Pp]ython"
+
+for title in titles:
+    if re.search(pattern, title):
+        python_mentions += 1
