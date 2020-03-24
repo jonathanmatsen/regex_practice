@@ -31,3 +31,11 @@ email_bool = titles.str.contains(r"e-?mail")
 email_count = email_bool.sum()
 
 email_titles = titles[email_bool]
+
+#character classes
+
+pattern = "\[\w+\]"
+
+tag_titles = titles.str.contains(pattern)
+
+tag_count = tag_titles.sum()
