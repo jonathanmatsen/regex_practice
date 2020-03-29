@@ -7,3 +7,17 @@ titles = hn['title']
 pattern = r"sql"
 
 sql_counts = titles.str.contains(pattern, flags=re.I).sum()
+
+# capture groups
+
+import numpy as np
+
+hn_sql = hn[hn['title'].str.contains(r"\w+SQL", flags=re.I)].copy()
+
+pattern = r"(\w+SQL)"
+
+hn_sql['flavor'] = hn_sql['title'].str.extract(pattern, flags = re.I)
+
+hn_sql['flavor'] = hn_sql['flavor'].str.lower()
+
+sql_pivot = hn_sql.pivot_table(index='flavor', values='num_comments', aggfunc=np.mean)
