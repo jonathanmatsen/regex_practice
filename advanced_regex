@@ -44,3 +44,8 @@ def first_10_matches(pattern):
 pattern = r"\b[Cc]\b[^.+]"
 
 first_ten = first_10_matches(pattern)
+
+#using lookarounds to control matches based on surrounding text
+pattern = r"(?<!Series\s)\b[Cc]\b(?![\+\.])"
+
+c_mentions = titles.str.contains(pattern).sum()
