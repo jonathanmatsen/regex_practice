@@ -108,3 +108,18 @@ test_urls_clean = test_urls.str.extract(pattern, flags=re.I)
 domains = hn['url'].str.extract(pattern, flags=re.I)
 
 top_domains = domains.value_counts().head()
+
+#extracting URL parts using multiple capture groups
+
+# `test_urls` is available from the previous screen
+
+pattern = r"(https?)://([\w\-\.]+)/?(.*)"
+
+test_url_parts = test_urls.str.extract(pattern, flags=re.I)
+
+url_parts = hn['url'].str.extract(pattern, flags=re.I)
+
+# using named capture groups to extract data
+pattern = r"(?P<protocol>https?)://(?P<domain>[\w\.\-]+)/?(?P<path>.*)"
+
+url_parts = hn['url'].str.extract(pattern, flags=re.I)
